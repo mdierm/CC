@@ -1,5 +1,3 @@
-Berikut adalah analisis lengkap yang telah disusun dalam satu kesatuan dengan pembaruan yang diminta, menggunakan bahasa Indonesia yang formal dan sesuai dengan istilah yang umum digunakan:
-
 ---
 
 # Laporan Analisis Kebocoran Data Kartu Kredit  
