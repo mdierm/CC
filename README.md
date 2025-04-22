@@ -1,7 +1,5 @@
 # Investigasi Kebocoran Kartu Kredit **4512490030051359**
 
- ([Over 900K pilfered credit card records leaked by BidenCash | SC Media](https://www.scworld.com/brief/over-900k-pilfered-credit-card-records-leaked-by-bidencash)) *Ilustrasi: Kartu kredit dan gembok di atas papan ketik, melambangkan keamanan data kartu.* 
-
 ## Metodologi Pencarian
 
 Kami melakukan penelusuran mendalam di berbagai sumber, termasuk mesin pencari umum, situs paste publik (seperti Pastebin), forum **dark web**, serta mesin pencari **OSINT** khusus (contohnya DeHashed, Intelligence X, Leak-Lookup). Tujuannya untuk menemukan jejak apakah nomor kartu **4512490030051359** pernah dipublikasikan atau diperjualbelikan secara online. Pencarian difokuskan pada kemunculan *string* nomor kartu lengkap, maupun potongan (BIN 451249, atau kombinasi sebagian digit) di basis data bocoran yang tersedia publik.
