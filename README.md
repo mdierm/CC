@@ -1,6 +1,3 @@
-Oke, saya akan mencari apakah nomor kartu kredit pribadi 4512490030051359 pernah muncul di data yang bocor, situs publik, atau forum online, dan mencoba menelusuri kemungkinan sumber kebocorannya. Saya akan memprioritaskan sumber seperti Pastebin, forum dark web, database breach, dan situs pemantauan data bocor.
-Saya akan beri kabar setelah saya menemukan hasilnya.
-
 # Investigasi Kebocoran Kartu Kredit **4512490030051359**
 
  ([Over 900K pilfered credit card records leaked by BidenCash | SC Media](https://www.scworld.com/brief/over-900k-pilfered-credit-card-records-leaked-by-bidencash)) *Ilustrasi: Kartu kredit dan gembok di atas papan ketik, melambangkan keamanan data kartu.* 
