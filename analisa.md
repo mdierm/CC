@@ -10,12 +10,12 @@ Laporan ini disusun oleh **Divisi Enterprise Risk Management (ERM)** untuk melak
 Laporan ini juga mencakup penelusuran mendalam terkait dengan insiden kebocoran data besar yang terjadi dalam **dark web** dan platform terkait, serta mengaitkan kebocoran data kartu dengan potensi penyalahgunaan yang dapat terjadi beberapa bulan setelah kebocoran.
 
 ### Metodologi Penelusuran  
-Untuk melakukan analisis ini, tim ERM telah melakukan penelusuran menggunakan berbagai sumber terbuka dan publik, termasuk mesin pencari (Google/Bing), situs paste publik seperti Pastebin, forum **dark web**, serta mesin pencari **OSINT** (Open Source Intelligence) seperti **DeHashed**, **Intelligence X**, dan **Leak-Lookup**. Penelusuran ini bertujuan untuk menemukan data atau jejak nomor kartu **451249********** dan mengidentifikasi potensi kebocoran terkait.
+Untuk melakukan analisis ini, tim ERM telah melakukan penelusuran menggunakan berbagai sumber, termasuk mesin pencari (Google/Bing), situs paste publik seperti Pastebin, forum **dark web**, serta mesin pencari **OSINT** (Open Source Intelligence) seperti **DeHashed**, **Intelligence X**, dan **Leak-Lookup**. Penelusuran ini bertujuan untuk menemukan data atau jejak nomor kartu **451249********** dan mengidentifikasi potensi kebocoran terkait.
 
 Divisi ERM juga mengembangkan **tools khusus** yang memanfaatkan **jaringan Onion (Tor)** untuk mencari informasi terkait kebocoran data kartu kredit di **dark web**. Tools ini dirancang untuk melakukan pencarian secara lebih mendalam dengan menggabungkan **teknik dorking** untuk menemukan informasi terkait jual beli data, **carding**, dan aktivitas penipuan lainnya yang mungkin terdaftar di platform yang lebih sulit dijangkau oleh pencarian umum.
 
 ### Kejadian BidenCash dan B1ack’s Stash  
-Sebelum membahas lebih lanjut mengenai kebocoran data kartu kredit, perlu dijelaskan terlebih dahulu dua kejadian besar yang melibatkan kebocoran data kartu dalam skala besar, yaitu **BidenCash** dan **B1ack’s Stash**. Kedua insiden ini memiliki relevansi tinggi karena menjadi sumber utama dari kebocoran data kartu yang dapat berisiko bagi pihak-pihak yang terlibat, termasuk **Bank Negara Indonesia (BNI)**.
+Sebelum membahas lebih lanjut mengenai kebocoran data kartu kredit, perlu dijelaskan terlebih dahulu dua kejadian besar yang melibatkan kebocoran data kartu dalam skala besar, yaitu **BidenCash** dan **B1ack’s Stash**. Kedua insiden ini memiliki relevansi karena menjadi sumber utama dari kebocoran data kartu yang dapat berisiko bagi pihak-pihak yang terlibat, termasuk **Bank Negara Indonesia (BNI)**.
 
 #### 1. **Kebocoran Data oleh BidenCash**  
 **BidenCash** adalah salah satu marketplace carding yang beroperasi di **dark web** dan dikenal karena kebocoran data kartu dalam jumlah besar.  
@@ -41,7 +41,7 @@ Divisi ERM melanjutkan dengan menganalisis potensi kebocoran data kartu kredit l
    Insiden ini sangat relevan karena distribusi data kartu yang bocor mencakup berbagai negara, dan meskipun nomor kartu spesifik dengan **BIN 451249 (BNI)** belum teridentifikasi dalam dump ini, ada kemungkinan besar bahwa kartu BNI turut terdampak mengingat skala kebocoran tersebut.
 
    **Relevansi Rentan Waktu:**  
-   Insiden **B1ack’s Stash** terjadi pada **Februari 2025**, dan kartu dengan **BIN 451249** yang bocor mungkin saja digunakan dalam transaksi yang terjadi pada periode berikutnya. Korelasi ini **mungkin berasal dari insiden kebocoran tersebut**, mengingat adanya transaksi penipuan yang terdeteksi pada **April 2025**. Hal ini menyoroti pentingnya **rentang waktu** yang dapat terjadi antara kebocoran data dan pemanfaatannya untuk transaksi penipuan. Meskipun kebocoran terjadi beberapa bulan sebelumnya, data kartu yang bocor tetap dapat dimanfaatkan dalam waktu yang lebih lama untuk transaksi yang mencurigakan.
+   Insiden **B1ack’s Stash** terjadi pada **Februari 2025**, dan kartu dengan **BIN 451249** yang bocor mungkin saja digunakan dalam transaksi yang terjadi pada periode berikutnya. Korelasi ini **mungkin berasal dari insiden kebocoran tersebut**, mengingat adanya transaksi penipuan yang terdeteksi pada **April 2025** yang terjadi pada aplikasi **My XLnAxiata. Hal ini menyoroti pentingnya **rentang waktu** yang dapat terjadi antara kebocoran data dan pemanfaatannya untuk transaksi penipuan. Meskipun kebocoran terjadi beberapa bulan sebelumnya, data kartu yang bocor tetap dapat dimanfaatkan dalam waktu yang lebih lama untuk transaksi yang mencurigakan.
 
 ### Riwayat BIN 451249 dalam Forum Underground  
 Dalam penelusuran lebih lanjut, **BIN 451249** tercatat sebagai salah satu **BIN cardable** yang sering muncul dalam forum carding underground. Sejak **2017**, **BIN 451249** telah dikenal di kalangan pelaku kejahatan siber sebagai BIN yang **rentan untuk disalahgunakan** dalam transaksi penipuan, terutama pada merchant yang tidak memiliki sistem deteksi penipuan yang ketat.
@@ -54,36 +54,36 @@ Dalam penelusuran lebih lanjut, **BIN 451249** tercatat sebagai salah satu **BIN
 Dari perspektif **Enterprise Risk Management (ERM)**, kebocoran data kartu dengan **BIN 451249** dapat disebabkan oleh beberapa faktor yang berpotensi menjadi sumber kebocoran data. Beberapa kemungkinan penyebab kebocoran data ini meliputi:
 
 1. **Malware Stealer:**  
-   Malware stealer, atau perangkat lunak yang dirancang untuk mencuri data kartu dari perangkat pengguna, adalah salah satu penyebab utama kebocoran data kartu. Jenis malware ini sering kali disusupkan melalui lampiran email phishing atau situs web yang tidak aman. Begitu terpasang, malware ini dapat mengumpulkan informasi sensitif seperti nomor kartu, CVV, dan tanggal kedaluwarsa yang kemudian dikirimkan ke server peretas. Kebocoran semacam ini sulit dideteksi sampai transaksi penipuan terjadi.
+   Malware stealer, atau perangkat lunak yang dirancang untuk mencuri data kartu dari perangkat pengguna, adalah salah satu penyebab utama kebocoran data kartu. Jenis malware ini sering kali disusupkan melalui lampiran email phishing atau situs web yang tidak aman, malware ini dapat mengumpulkan informasi sensitif seperti nomor kartu, CVV, dan tanggal kedaluwarsa yang kemudian dikirimkan ke server peretas. Kebocoran semacam ini sulit dideteksi sampai transaksi penipuan terjadi.
 
 2. **Web Skimming (Magecart):**  
    **Web skimming** adalah teknik pencurian data yang umum terjadi di situs e-commerce yang telah terinfeksi malware berbasis JavaScript. Malware ini biasanya disisipkan pada halaman pembayaran online untuk mencuri data kartu saat nasabah melakukan transaksi. Dengan cara ini, informasi kartu yang dimasukkan oleh nasabah pada saat melakukan pembelian dapat dicuri dan disalahgunakan. Kejadian ini relevan mengingat beberapa insiden kebocoran besar, seperti yang terjadi pada **B1ack’s Stash**, diyakini berasal dari praktik web skimming.
 
 3. **Pihak Ketiga (Third-Party Breach):**  
-   Pihak ketiga yang menyimpan atau memproses data kartu, seperti **payment gateway**, **platform e-commerce**, atau penyedia layanan pembayaran lainnya, juga dapat menjadi sumber kebocoran data kartu. Jika pihak ketiga tersebut mengalami pelanggaran keamanan, data kartu yang disimpan atau diproses dapat bocor. Kebocoran ini lebih berisiko karena data yang dicuri biasanya lebih tersembunyi, sehingga sulit untuk mendeteksinya sebelum kerugian terjadi.
-
-4. **Pihak Internal (Insider Threats):**  
-   Selain ancaman eksternal, **ancaman internal** juga perlu diperhatikan. Pihak internal yang memiliki akses terhadap data kartu, seperti karyawan yang bekerja di sistem keamanan atau operasional perusahaan, bisa saja dengan sengaja atau tidak sengaja mengekspos data sensitif. Misalnya, karyawan yang tidak terlatih dengan baik tentang kebijakan keamanan data dapat melakukan kesalahan yang mengarah pada kebocoran. Oleh karena itu, penting untuk memastikan bahwa kontrol keamanan yang ketat diterapkan pada akses internal terhadap data sensitif.
+   Pihak ketiga yang menyimpan atau memproses data kartu, seperti **payment gateway**, **platform e-commerce**, atau penyedia layanan pembayaran lainnya, juga dapat menjadi sumber kebocoran data kartu.
+   
+5. **Pihak Internal (Insider Threats):**  
+   Di samping ancaman dari luar, risiko dari dalam perusahaan juga harus menjadi perhatian. Individu yang memiliki akses ke data kartu, seperti karyawan di bagian keamanan atau operasional, berpotensi secara sengaja maupun tidak sengaja membocorkan informasi sensitif.
 
 ### Rekomendasi Strategis ERM  
 Berdasarkan hasil analisis ini, Divisi ERM merekomendasikan langkah-langkah berikut untuk mengelola risiko kebocoran kartu kredit yang berpotensi terjadi:
 
 1. **Pemantauan Dark Web:**  
-   Meningkatkan pemantauan secara terus-menerus terhadap forum carding dan **dark web** guna mendeteksi peredaran data kartu yang melibatkan **BIN 451249**. Ini termasuk bekerjasama dengan penyedia layanan intelijen ancaman untuk **memantau forum gelap**.
+   Meningkatkan pemantauan secara terus-menerus terhadap forum carding dan **dark web** guna mendeteksi peredaran data kartu yang melibatkan **BIN 451249**.
 
 2. **Penguatan Keamanan Transaksi:**  
    Memastikan bahwa **3D Secure/OTP** diaktifkan untuk semua transaksi kartu yang dilakukan oleh perusahaan. Hal ini dapat membantu mencegah penyalahgunaan meskipun data kartu telah bocor.
 
 3. **Peningkatan Kesadaran dan Pelatihan Karyawan:**  
-   Meningkatkan **kesadaran karyawan** tentang bahaya skimming dan phishing, serta cara mengenali potensi serangan yang bisa mencuri informasi kartu mereka.
+   Meningkatkan **kesadaran karyawan** tentang bahaya web skimming dan phishing, serta cara mengenali potensi serangan yang bisa mencuri informasi.
 
 4. **Audit dan Penilaian Keamanan Pihak Ketiga:**  
    Melakukan **audit keamanan rutin** terhadap pihak ketiga yang memproses atau menyimpan data kartu untuk memastikan bahwa mereka memenuhi standar keamanan data yang relevan, seperti **PCI DSS**.
 
 5. **Tanggapan Insiden dan Pemulihan:**  
-   Menyusun protokol respons insiden yang cepat untuk **menggantikan kartu yang bocor** dan melaporkan kebocoran data kepada pihak yang berwenang.
+   Menyusun protokol insiden response yang cepat untuk **menggantikan kartu yang bocor** dan melaporkan kebocoran data kepada pihak yang berwenang.
 
 ### Kesimpulan  
-**BIN 451249** telah diketahui di kalangan pelaku kejahatan kartu kredit sebagai **BIN yang rentan terhadap penyalahgunaan**. Meskipun nomor kartu yang dianalisis tidak ditemukan dalam kebocoran data secara eksplisit, temuan ini menunjukkan bahwa **kartu dengan BIN 451249** berisiko lebih tinggi terkena serangan carding dan penyalahgunaan. Oleh karena itu, sangat penting untuk **memantau peredaran data kartu secara berkelanjutan** dan memastikan langkah-langkah keamanan yang lebih ketat diterapkan untuk melindungi data kartu dari potensi kebocoran di masa depan.
+**BIN 451249** telah diketahui di kalangan pelaku kejahatan kartu kredit sebagai **BIN yang rentan terhadap penyalahgunaan**. Meskipun nomor kartu yang dianalisis tidak ditemukan dalam kebocoran data secara eksplisit, temuan ini menunjukkan bahwa **kartu dengan BIN 451249** berisiko lebih tinggi terkena serangan carding dan penyalahgunaan. Oleh karena itu, sangat penting untuk **memantau peredaran data kartu secara berkelanjutan** dan memastikan langkah-langkah keamanan yang lebih ketat diterapkan untuk melindungi data kartu dari potensi kebocoran.
 
 ---
