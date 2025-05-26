@@ -246,7 +246,7 @@ Dengan rate limiting di sisi ACS:
 * **Serangan rekayasa sosial jadi lebih sulit dilakukan.**
 
 ---
-### 🔄 Flowchart: OTP Rate Limiting (dengan kotak)
+### 🔄 Flowchart: OTP Rate Limiting 
 
 ```mermaid
 flowchart TD
