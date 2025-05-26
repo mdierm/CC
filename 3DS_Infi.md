@@ -186,3 +186,65 @@ Alasannya:
 
 ---
 
+Kalau kita **tetap mempertahankan flow existing** — yaitu **OTP tetap dikirim meski data seperti CVV/expiry salah**, maka **rate limiting adalah komponen krusial** untuk mencegah penyalahgunaan (abuse) seperti OTP spamming dan brute-force.
+
+### 📍 Jawaban singkat:
+
+> ✅ **Rate limiting sebaiknya diterapkan di sisi ACS (Infinitium), dan idealnya juga sebagian di sisi issuer.**
+
+---
+
+## 💡 Penjelasan Strategis Rate Limiting
+
+### 1. 🔐 **Rate Limit di Sisi ACS (Infinitium)**
+
+**Tujuan:** Mencegah abuse pada proses OTP (3DS challenge).
+
+| Dimensi          | Implementasi                                                        |
+| ---------------- | ------------------------------------------------------------------- |
+| Per nomor kartu  | Maksimal 3 OTP per 10 menit                                         |
+| Per IP address   | Maksimal 5 OTP requests per jam                                     |
+| Per sesi/browser | 1 OTP aktif per sesi                                                |
+| Per nomor HP     | Deteksi pengiriman OTP ke nomor yang sama dari banyak kartu berbeda |
+
+🔁 **Tambahan Mitigasi**:
+
+* OTP hanya bisa digunakan untuk 1 sesi transaksi.
+* Back-button / refresh harus invalidasi OTP sebelumnya.
+* Tambahkan delay progresif jika permintaan berulang.
+
+---
+
+### 2. 🏦 **Rate Limit di Sisi Issuer (opsional)**
+
+**Tujuan:** Perlindungan tambahan jika issuer mengaktifkan alert terhadap pola mencurigakan.
+
+| Implementasi                                         | Penjelasan                   |
+| ---------------------------------------------------- | ---------------------------- |
+| Alert untuk OTP > 3x dalam waktu singkat             | Tanda penyalahgunaan         |
+| Alert untuk request 3DS dari banyak lokasi berbeda   | Bisa jadi alat fraud mapping |
+| Opsional: suspend sementara 3DS untuk kartu tersebut | Untuk kasus abuse ekstrem    |
+
+---
+
+## 🧱 Ringkasan Level Rate Limiting
+
+| Layer                      | Rate Limiting                       | Wajib?      | Catatan                                     |
+| -------------------------- | ----------------------------------- | ----------- | ------------------------------------------- |
+| **Frontend (Browser/App)** | 1 OTP per sesi                      | ✅           | Prevent misuse client-side                  |
+| **ACS (Infinitium)**       | IP-based, card-based, session-based | ✅           | Core defense                                |
+| **Issuer**                 | Monitoring abuse pattern            | ⚠️ Opsional | Bisa kirim alert atau suspend 3DS sementara |
+
+---
+
+## 🎯 Tujuan Akhir
+
+Dengan rate limiting di sisi ACS:
+
+* **Serangan enumerasi dan OTP spam bisa dicegah.**
+* **Pengguna tidak bisa coba-coba CVV terus menerus.**
+* **Serangan rekayasa sosial jadi lebih sulit dilakukan.**
+
+---
+
+
