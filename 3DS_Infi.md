@@ -138,5 +138,51 @@ Kamu bisa masuk lobi kantor (OTP dikirim), tapi kalau ID kamu salah (CVV), kamu 
 | **Issuer Bank**  | Otorisasi transaksi  | ✅ Ya                |
 
 ---
+> "Artinya otp tetap terkirim walaupun salah satu data pendukung salah cvv atau expire date"
+Betul. Dalam arsitektur 3D Secure yang **sesuai dengan standar EMVCo**, **OTP tetap dapat terkirim meskipun data pendukung seperti CVV atau expiration date salah** — selama nomor kartu valid dan terdaftar pada sistem issuer.
 
+Alasannya:
+
+---
+
+## 🔒 **Prinsip Dasar 3D Secure (EMV 3DS)**
+
+| Elemen       | Tujuan                   | Siapa yang Bertanggung Jawab  |
+| ------------ | ------------------------ | ----------------------------- |
+| CVV / Expiry | Validasi detail kartu    | **Issuer** (saat otorisasi)   |
+| OTP          | Otentikasi pemilik kartu | **ACS** (misalnya Infinitium) |
+
+---
+
+## 🧠 **Kenapa OTP Tetap Dikirim Meski CVV Salah?**
+
+1. **CVV tidak divalidasi oleh ACS.**
+
+   * ACS tidak memiliki akses ke database CVV yang sah (itu hanya milik issuer).
+   * ACS hanya memastikan bahwa kartu terdaftar untuk 3DS dan mengirimkan challenge (OTP).
+
+2. **OTP adalah faktor autentikasi, bukan otorisasi.**
+
+   * OTP hanya memastikan *siapa* yang mencoba transaksi.
+   * CVV dan detail lainnya akan dicek nanti oleh issuer pada saat pembayaran benar-benar diajukan.
+
+---
+
+## ⚠️ Risiko Jika OTP Ditolak Saat CVV Salah:
+
+* Penyerang bisa mendeteksi kombinasi yang valid.
+
+  * Misal: “Kalau saya dapat OTP → nomor kartu valid”
+  * “Kalau tidak dapat OTP → nomor kartu tidak valid”
+* Ini membuka peluang brute-force kartu (enumeration attack).
+
+---
+
+## 🔐 Maka dari itu:
+
+* **Pengiriman OTP ≠ Validasi kartu berhasil.**
+* OTP = konfirmasi bahwa sistem ingin tahu *apakah pemilik sah kartu sedang melakukan transaksi.*
+* Hasil akhir transaksi tetap akan gagal jika CVV salah saat masuk tahap otorisasi oleh issuer.
+
+---
 
