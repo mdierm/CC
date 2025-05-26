@@ -46,7 +46,7 @@
 | **Validasi CVV sebelum OTP**       | ❌ Tidak disarankan (berisiko leak informasi)                            | ✅ Dilewati, sesuai                                |
 | **Pengiriman OTP**                 | ✅ Hanya setelah validitas minimal terverifikasi & dilindungi rate-limit | ❌ Dapat diulang tanpa batas                       |
 | **Keterkaitan OTP dengan session** | ✅ OTP terikat ke transaksi spesifik                                     | ❌ OTP dapat dikirim ulang tanpa session locking   |
-| **Mitigasi Social Engineering**    | ✅ Berikan konteks OTP, edukasi pengguna, alert sistem                   | ❌ Tidak ada tampilan informasi transaksi pada OTP |
+| **Mitigasi Social Engineering**    | ✅ Berikan konteks OTP, edukasi pengguna, alert sistem                   | ✅ Ada tampilan informasi  transaksi pada OTP |
 | **Rate Limiting / Anti-abuse**     | ✅ Penting untuk mencegah brute-force dan spam                           | ❌ Tidak diterapkan atau tidak efektif             |
 
 ---
@@ -77,3 +77,66 @@ Walau pengiriman OTP tanpa validasi CVV terdengar lemah di permukaan, pendekatan
 Tanpa mitigasi yang tepat, sistem saat ini **berpotensi dimanfaatkan untuk mencuri OTP dari korban melalui social engineering**, dan oleh karena itu **perlu segera dilakukan perbaikan pada flow pengiriman OTP dan verifikasi 3DS.**
 
 ---
+
+> ✅ \*\*Validasi informasi kartu (seperti CVV, tanggal kadaluarsa, saldo, status kartu, dll) **sebaiknya dilakukan di sisi *issuer* pada tahap otorisasi transaksi, bukan di ACS atau merchant sebelum OTP dikirim.**
+
+Mari kita bedah:
+
+---
+
+## 🔒 **Tahapan Ideal dalam Transaksi Kartu (dengan 3D Secure)**
+
+| Tahap                            | Siapa yang Melakukan      | Apa yang Divalidasi                                    |
+| -------------------------------- | ------------------------- | ------------------------------------------------------ |
+| **1. Input Data Kartu**          | User (di merchant)        | No. kartu, expiry, CVV                                 |
+| **2. 3D Secure Challenge (OTP)** | ACS (misalnya Infinitium) | Autentikasi pemilik kartu, **tanpa validasi CVV**      |
+| **3. Otorisasi Transaksi**       | **Issuer Bank**           | ✅ Validasi semua (CVV, saldo, limit, fraud rules, dll) |
+
+---
+
+## ❌ **Kenapa Tidak Validasi CVV di Sisi ACS (Infinitium)?**
+
+### ❗ Risiko:
+
+* Membuka **enumeration attack** (tebakan CVV valid/salah).
+* Mengungkap kartu valid meskipun CVV salah → **informasi sensitif bocor.**
+* **Menyimpang dari spesifikasi EMV 3DS.**
+
+> ACS hanya bertugas mengautentikasi *pemilik* kartu, bukan memverifikasi *detail kartu.*
+
+---
+
+## ✅ **Validasi yang Benar Ada di Sisi Issuer**
+
+### Keuntungan:
+
+* Issuer memiliki data lengkap: status kartu, CVV, limit, blokir, dll.
+* Bisa menggabungkan dengan fraud detection internal.
+* **Jika CVV salah → transaksi ditolak.** OTP tetap boleh dikirim karena:
+
+  * OTP hanyalah satu faktor autentikasi.
+  * CVV adalah faktor verifikasi detail kartu (otorisasi).
+
+---
+
+## 🔁 Analogi Singkat
+
+Bayangkan sistem seperti ini:
+
+> "Kamu masuk kantor (OTP), tapi kartu ID kamu (CVV) harus dicek oleh petugas keamanan (issuer) sebelum kamu boleh kerja (transaksi)."
+
+Kamu bisa masuk lobi kantor (OTP dikirim), tapi kalau ID kamu salah (CVV), kamu tetap ditolak di dalam. Jangan suruh resepsionis (ACS) verifikasi ID-nya — dia bukan pihak yang berwenang.
+
+---
+
+## 🧠 Ringkasan Teknis
+
+| Komponen         | Tugas                | Harus Validasi CVV? |
+| ---------------- | -------------------- | ------------------- |
+| Merchant         | Kumpulkan data       | Tidak               |
+| ACS (Infinitium) | Autentikasi pengguna | ❌ Tidak             |
+| **Issuer Bank**  | Otorisasi transaksi  | ✅ Ya                |
+
+---
+
+
