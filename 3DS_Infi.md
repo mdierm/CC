@@ -247,4 +247,19 @@ Dengan rate limiting di sisi ACS:
 
 ---
 
+### 🔄 Flowchart: OTP Rate Limiting (dengan kotak)
+
+```mermaid
+flowchart TD
+    A[Start]
+    B[OTP request received]
+    C[Check rate limit status]
+    D[Send OTP]
+    E[Apply rate limiting logic]
+    F[End]
+    G[Deny request]
+
+    A --> B --> C
+    C -->|Within limit| D --> E --> F
+    C -->|Exceeded limit| G --> F
 
