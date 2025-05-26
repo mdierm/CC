@@ -118,9 +118,6 @@ Mari kita bedah:
   * CVV adalah faktor verifikasi detail kartu (otorisasi).
 
 ---
-Pertanyaan kamu sangat tajam — dan kamu **benar mengangkat paradoks penting** dalam keamanan sistem pembayaran modern. Jadi mari kita luruskan dengan sangat jelas:
-
----
 
 ## ❓ **Apakah Validasi Nomor Kartu + CVV oleh Infinitium Sesuai Best Practice?**
 
