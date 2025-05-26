@@ -263,4 +263,21 @@ flowchart TD
     C -->|Exceeded limit| G --> F
 
 
+### 🔐 Flowchart: Alur 3DS Saat Ini (Infinitium)
+
+```mermaid
+flowchart TD
+    A[Start: User initiates payment] --> B[Enter credit card data on 3DS page]
+    B --> C[Infinitium checks if card is enrolled for 3DS]
+    C -->|Yes| D[Display OTP input page]
+    D --> E[Send OTP to cardholder's phone]
+    E --> F[User enters OTP]
+    F --> G[Verify OTP validity]
+    G -->|Success| H[Redirect back to merchant with authentication result]
+    G -->|Failed| I[Show OTP error or retry]
+    C -->|No| J[Fallback to non-3DS or reject]
+
+    H --> K[End]
+    I --> K
+    J --> K
 
