@@ -123,7 +123,7 @@ Mari kita bedah:
 
 Bayangkan sistem seperti ini:
 
-> "Kamu masuk kantor (OTP), tapi kartu ID kamu (CVV) harus dicek oleh petugas keamanan (issuer) sebelum kamu boleh kerja (transaksi)."
+> ##"Kamu masuk kantor (OTP), tapi kartu ID kamu (CVV) harus dicek oleh petugas keamanan (issuer) sebelum kamu boleh kerja (transaksi)."##
 
 Kamu bisa masuk lobi kantor (OTP dikirim), tapi kalau ID kamu salah (CVV), kamu tetap ditolak di dalam. Jangan suruh resepsionis (ACS) verifikasi ID-nya — dia bukan pihak yang berwenang.
 
